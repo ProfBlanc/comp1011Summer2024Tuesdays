@@ -1,0 +1,55 @@
+Camera
+___________________________________
+p:lens: string
+p:sensor: string
+d:color: string
+p:weight: float
+p:make: string
+p:model: string
+r:yearReleased: int
+p: numOfPhotosTaken: int
+p: videoHoursRecorded: float
+___________________________________
+b:takePicture(howMany: int): bool
+b:recordVideo(howLong: float): bool
+b:displayVideo(filter:...string): bool
+b:isOldCamera(): bool
+___________________________________
+
+
+
+
+
+When creating a new scene (screen)
+Change the Application loader file to load the new .fxml file
+Create the controller file for the new .fxml file in java directory
+Create the .fxml file in the resources directory
+launch the app
+
+
+
+
+________________________________________________________________________
+
+SplitPane as a root layout
+
+	BIG TITLE: label			Label: rectangle
+	hidden error label			display the result of the 						recently added Camera
+	Make: textfield			|
+	Model: textfield		|
+	lens: textfield			|
+	color: textfield		|
+	sensor: textfield		|
+	submit button: button		|
+					|
+					|
+					|
+					|
+					|
+					|
+					|
+					|
+					|
+					|
+___________________________________________________________________________
+

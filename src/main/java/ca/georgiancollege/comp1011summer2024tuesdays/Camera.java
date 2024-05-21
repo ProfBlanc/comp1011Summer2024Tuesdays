@@ -6,6 +6,10 @@ public class Camera {
  private int numberOfPhotosTaken, yearReleased=2024;
  private float videoHoursRecorded;
 
+
+ private String photo;
+ private int megaPixels;
+
  //alt+insert
 private void validate(String title, String data){
  if(data.trim().isEmpty()){
@@ -91,5 +95,16 @@ private void validate(String title, String data){
    System.out.println("Applying filter: " + filter);
   }
   return true;
+ }
+
+ @Override
+ public String toString() {
+  return "Camera{" +
+          "model='" + model + '\'' +
+          ", make='" + make + '\'' +
+          ", color='" + color + '\'' +
+          ", sensor='" + sensor + '\'' +
+          ", lens='" + lens + '\'' +
+          '}';
  }
 }
