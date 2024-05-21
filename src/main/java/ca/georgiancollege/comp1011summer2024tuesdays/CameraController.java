@@ -2,13 +2,19 @@ package ca.georgiancollege.comp1011summer2024tuesdays;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.Image;
 
 import java.util.ArrayList;
 
 public class CameraController {
+
+    @FXML
+    private ImageView mainPhoto;
 
     private ArrayList<Camera> cameraList = new ArrayList<>();
     @FXML
@@ -98,5 +104,12 @@ Add the code to the Controller
         int index = combo.getSelectionModel().getSelectedIndex();
 
         output.setText(cameraList.get(index).toString());
+    }
+    @FXML
+    void onArrowClick(ActionEvent event){
+        String text = ( (Button) event.getSource()).getText();
+        System.out.println(text);
+mainPhoto.setImage(new Image(String.valueOf(getClass().getResource("images/photo2.jpg"))));
+
     }
 }

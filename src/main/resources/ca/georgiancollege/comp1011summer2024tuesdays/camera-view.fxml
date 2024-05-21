@@ -4,12 +4,15 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.georgiancollege.comp1011summer2024tuesdays.CameraController">
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.georgiancollege.comp1011summer2024tuesdays.CameraController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
@@ -23,17 +26,27 @@
                   <Font size="12.0" />
                </font>
             </Label>
-            <Label layoutX="46.0" layoutY="132.0" text="Make" />
-            <TextField fx:id="make" layoutX="108.0" layoutY="128.0" />
-            <Label layoutX="44.0" layoutY="177.0" text="Model" />
-            <TextField fx:id="model" layoutX="106.0" layoutY="173.0" />
-            <Label layoutX="42.0" layoutY="224.0" text="Lens" />
-            <TextField fx:id="lens" layoutX="104.0" layoutY="220.0" />
-            <Label layoutX="42.0" layoutY="270.0" text="Sensor" />
-            <TextField fx:id="sensor" layoutX="104.0" layoutY="266.0" />
-            <Label layoutX="42.0" layoutY="307.0" text="Color" />
-            <TextField fx:id="color" layoutX="104.0" layoutY="303.0" />
-            <Button layoutX="128.0" layoutY="347.0" mnemonicParsing="false" onAction="#onSubmit" text="Submit" />
+            <Label layoutX="55.0" layoutY="257.0" text="Make" />
+            <TextField fx:id="make" layoutX="117.0" layoutY="253.0" />
+            <Label layoutX="53.0" layoutY="302.0" text="Model" />
+            <TextField fx:id="model" layoutX="115.0" layoutY="298.0" />
+            <Label layoutX="51.0" layoutY="349.0" text="Lens" />
+            <TextField fx:id="lens" layoutX="113.0" layoutY="345.0" />
+            <Label layoutX="51.0" layoutY="395.0" text="Sensor" />
+            <TextField fx:id="sensor" layoutX="113.0" layoutY="391.0" />
+            <Label layoutX="51.0" layoutY="432.0" text="Color" />
+            <TextField fx:id="color" layoutX="113.0" layoutY="428.0" />
+            <Button layoutX="123.0" layoutY="517.0" mnemonicParsing="false" onAction="#onSubmit" text="Submit" />
+            <Label layoutX="33.0" layoutY="480.0" text="MegaPixels" />
+            <Slider blockIncrement="4.0" layoutX="122.0" layoutY="481.0" max="50.0" min="10.0" showTickMarks="true" />
+            <Label layoutX="48.0" layoutY="173.0" text="Photo" />
+            <ImageView fx:id="mainPhoto" fitHeight="108.0" fitWidth="150.0" layoutX="102.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/photo1.jpg" />
+               </image>
+            </ImageView>
+            <Button layoutX="90.0" layoutY="217.0" mnemonicParsing="false" onAction="#onArrowClick" text="&lt;" />
+            <Button layoutX="227.0" layoutY="217.0" mnemonicParsing="false" onAction="#onArrowClick" text="&gt;" />
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
