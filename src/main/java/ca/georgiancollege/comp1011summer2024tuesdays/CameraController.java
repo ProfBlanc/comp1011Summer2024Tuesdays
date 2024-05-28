@@ -9,6 +9,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
 import java.util.ArrayList;
 
 public class CameraController {
@@ -17,6 +20,9 @@ public class CameraController {
     private ImageView mainPhoto;
 
     private ArrayList<Camera> cameraList = new ArrayList<>();
+
+    private ArrayList<String> photoList = new ArrayList<>();
+    private int photoListIndex;
     @FXML
     private ComboBox<String> combo;
     @FXML
@@ -82,6 +88,28 @@ Add the code to the Controller
     }
     public void initialize(){
 
+        String path = getClass().getResource("images").getPath();
+        System.out.println(path);
+        try {
+            Path p = Path.of(getClass().getResource("images").toURI());
+
+            System.out.println(p.toFile().exists());
+
+
+//            for(File f : p.toFile().listFiles()){
+//                System.out.println(f.getName());
+//            }
+
+
+
+            for(String filePath : p.toFile().list()){
+                photoList.add(p.resolve(filePath).toString());
+                System.out.println(p.resolve(filePath));
+            }
+        }
+        catch (Exception e){
+            System.err.println(e);
+        }
         //runs right before the Stage is shown
 
         output.setText("");
@@ -109,7 +137,11 @@ Add the code to the Controller
     void onArrowClick(ActionEvent event){
         String text = ( (Button) event.getSource()).getText();
         System.out.println(text);
-mainPhoto.setImage(new Image(String.valueOf(getClass().getResource("images/photo2.jpg"))));
+//mainPhoto.setImage(new Image(String.valueOf(getClass().getResource("images/photo2.jpg"))));
 
+photoListIndex = text.equals(">") ? photoListIndex >= photoList.size() -1 ? 0 : photoListIndex + 1
+        : photoListIndex <= 0 ? photoList.size() - 1 : photoListIndex - 1;
+
+mainPhoto.setImage(new Image(photoList.get(photoListIndex)));
     }
 }

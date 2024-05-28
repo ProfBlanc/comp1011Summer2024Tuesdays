@@ -1,0 +1,18 @@
+Create an ArrayList<String||File> store all photo files
+
+set the mainPhoto image to the first element in our photoList variable
+
+Index indicates the current file displayed
+
+Use the setImage(new Image("path to the image"));
+
+
+
+
+Once user clicks submit
+	Add a STRING path to the Photo chosen
+	Get and add a INT value for MegaPixel
+
+Warning:
+	You may have to make changes to your Camera class (Model)
+
