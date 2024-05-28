@@ -36,7 +36,7 @@
             <TextField fx:id="sensor" layoutX="113.0" layoutY="391.0" />
             <Label layoutX="51.0" layoutY="432.0" text="Color" />
             <TextField fx:id="color" layoutX="113.0" layoutY="428.0" />
-            <Button layoutX="123.0" layoutY="517.0" mnemonicParsing="false" onAction="#onSubmit" text="Submit" />
+            <Button fx:id="btn" layoutX="123.0" layoutY="517.0" mnemonicParsing="false" onAction="#onSubmit" text="Submit" />
             <Label layoutX="33.0" layoutY="480.0" text="MegaPixels" />
             <Slider blockIncrement="4.0" layoutX="122.0" layoutY="481.0" max="50.0" min="10.0" showTickMarks="true" />
             <Label layoutX="48.0" layoutY="173.0" text="Photo" />

@@ -1,6 +1,7 @@
 package ca.georgiancollege.comp1011summer2024tuesdays;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -8,6 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
+import javafx.scene.input.ContextMenuEvent;
+import javafx.scene.input.MouseEvent;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,6 +18,17 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 
 public class CameraController {
+
+
+    EventHandler<MouseEvent> mouseEventEventHandler = new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent mouseEvent) {
+            System.out.println("Random Mouse Event");
+        }
+    };
+
+    @FXML
+    Button btn;
 
     @FXML
     private ImageView mainPhoto;
@@ -88,10 +102,29 @@ Add the code to the Controller
     }
     public void initialize(){
 
+
+        btn.setOnContextMenuRequested(new EventHandler<ContextMenuEvent>() {
+            @Override
+            public void handle(ContextMenuEvent e) {
+                System.out.println("Clicked the context menu");
+            }
+        });
+
+        btn.setOnMouseExited(e -> System.out.println("Exited mouse"));
+
+        btn.setOnMouseEntered( (e) -> {System.out.println("Entered mouse");   }    );
+
+        btn.setOnMouseMoved(mouseEventEventHandler);
+
+
         String path = getClass().getResource("images").getPath();
+       // String path1 = "./src/main/resources/images";
+
         System.out.println(path);
         try {
             Path p = Path.of(getClass().getResource("images").toURI());
+            //Path p = Path.of(path1);
+            System.out.println(p);
 
             System.out.println(p.toFile().exists());
 

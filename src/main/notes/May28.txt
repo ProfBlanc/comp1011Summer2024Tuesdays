@@ -16,3 +16,24 @@ Once user clicks submit
 Warning:
 	You may have to make changes to your Camera class (Model)
 
+
+
+
+Intro to Anonymous Functions
+
+Intro to Lambda Expressions
+
+Changing Scenes
+
+
+
+
+
+
+
+new EventHandler<MouseEvent>{
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                System.out.println("Clicked from the mouse");
+            }
+        }
