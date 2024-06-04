@@ -136,7 +136,8 @@ Add the code to the Controller
 
 
             for(String filePath : p.toFile().list()){
-                photoList.add(p.resolve(filePath).toString());
+                //photoList.add(p.resolve(filePath).toString());
+                photoList.add("images/"+filePath);
                 System.out.println(p.resolve(filePath));
             }
         }
@@ -175,6 +176,8 @@ Add the code to the Controller
 photoListIndex = text.equals(">") ? photoListIndex >= photoList.size() -1 ? 0 : photoListIndex + 1
         : photoListIndex <= 0 ? photoList.size() - 1 : photoListIndex - 1;
 
-mainPhoto.setImage(new Image(photoList.get(photoListIndex)));
+//mainPhoto.setImage(new Image(photoList.get(photoListIndex)));
+        mainPhoto.setImage(new Image(String.valueOf(getClass().getResource(photoList.get(photoListIndex)))));
+
     }
 }
