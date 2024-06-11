@@ -14,9 +14,8 @@ public class StringAndStringBuilderModel {
        setMethod(method);
         setArgs(args);
 
-        System.out.println(getClass().getName());
 
-        db.setTable(getClass().getName());
+        db.setTable("StringAndStringBuilder");
 
 
     }
