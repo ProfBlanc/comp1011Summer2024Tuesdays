@@ -1,6 +1,7 @@
 module ca.georgiancollege.comp1011summer2024tuesdays {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     opens ca.georgiancollege.comp1011summer2024tuesdays to javafx.fxml;

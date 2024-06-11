@@ -1,0 +1,15 @@
+#btnEdit{
+    -fx-background-color: blue;
+    -fx-text-fill: white;
+}
+#btnEdit:hover{
+    -fx-background-color: lightblue;
+
+}
+
+.modify_buttons{
+    -fx-pref-height: 50;
+    -fx-pref-width: 50;
+    -fx-max-height: 50;
+    -fx-max-width: 50;
+}

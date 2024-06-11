@@ -28,10 +28,10 @@ public class CameraController {
     };
 
     @FXML
-    Button btn;
+    Button btn, btnEdit, btnDelete;
 
     @FXML
-    private ImageView mainPhoto;
+    private ImageView mainPhoto, rightPhoto;
 
     private ArrayList<Camera> cameraList = new ArrayList<>();
 
@@ -45,7 +45,6 @@ public class CameraController {
     @FXML
     private Label error, output;
 
-    private Camera camera = new Camera();
 
     @FXML
     void clear(){
@@ -72,16 +71,23 @@ Add the code to the Controller
 
          */
         try {
-//            Camera camera = new Camera(model.getText(), make.getText(),
-//                    color.getText(), sensor.getText(), lens.getText());
+            Camera camera = new Camera(model.getText(), make.getText(),
+                    color.getText(), sensor.getText(), lens.getText());
 
-            camera.setMake(make.getText());
-            camera.setModel(model.getText());
-            camera.setLens(lens.getText());
-            camera.setSensor(sensor.getText());
-            camera.setColor(color.getText());
-
+//            camera.setMake(make.getText());
+//            camera.setModel(model.getText());
+//            camera.setLens(lens.getText());
+//            camera.setSensor(sensor.getText());
+//            camera.setColor(color.getText());
+            camera.setPhoto(photoList.get(photoListIndex));
             output.setText(camera.toString());
+
+            rightPhoto.setImage(
+                    new Image(
+                            String.valueOf(getClass().getResource(camera.getPhoto()))
+                    )
+            );
+
             clear();
             cameraList.add(camera);
             displayCameras();
@@ -137,9 +143,42 @@ Add the code to the Controller
 
             for(String filePath : p.toFile().list()){
                 //photoList.add(p.resolve(filePath).toString());
-                photoList.add("images/"+filePath);
-                System.out.println(p.resolve(filePath));
+
+                if(filePath.contains("photo"))
+                   photoList.add("images/"+filePath);
+   //             System.out.println(p.resolve(filePath));
             }
+
+
+            btnEdit.setText("");
+            btnEdit.setGraphic(
+                    new ImageView(
+                            new Image(String.valueOf(getClass().getResource("images/edit.png")))
+                    )
+            );
+
+            btnEdit.setOnAction(event -> {
+
+                int index = combo.getSelectionModel().getSelectedIndex();
+                //known loophole
+
+                Camera selected = cameraList.get(index);
+
+                model.setText(selected.getModel());
+                make.setText(selected.getMake());
+                lens.setText(selected.getLens());
+                sensor.setText(selected.getSensor());
+                color.setText(selected.getColor());
+
+                mainPhoto.setImage(
+                        new Image(
+                                String.valueOf(getClass().getResource(selected.getPhoto()))
+                        )
+                );
+
+            });
+
+
         }
         catch (Exception e){
             System.err.println(e);
@@ -166,6 +205,9 @@ Add the code to the Controller
         int index = combo.getSelectionModel().getSelectedIndex();
 
         output.setText(cameraList.get(index).toString());
+        rightPhoto.setImage(
+                new Image(String.valueOf(getClass().getResource(cameraList.get(index).getPhoto())))
+        );
     }
     @FXML
     void onArrowClick(ActionEvent event){

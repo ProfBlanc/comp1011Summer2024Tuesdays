@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.georgiancollege.comp1011summer2024tuesdays.CameraController">
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="600.0" stylesheets="@app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.georgiancollege.comp1011summer2024tuesdays.CameraController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
@@ -50,18 +50,25 @@
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <Label fx:id="output" alignment="TOP_LEFT" layoutX="24.0" layoutY="78.0" prefHeight="234.0" prefWidth="246.0" style="-fx-border-color: black; -fx-background-color: skyblue;" text="Label" textOverrun="CLIP" wrapText="true">
+            <Label fx:id="output" alignment="TOP_LEFT" layoutX="36.0" layoutY="216.0" prefHeight="234.0" prefWidth="246.0" style="-fx-border-color: black; -fx-background-color: skyblue;" text="Label" textOverrun="CLIP" wrapText="true">
                <padding>
                   <Insets left="10.0" top="10.0" />
                </padding>
             </Label>
-            <Label alignment="CENTER" layoutX="65.0" layoutY="46.0" prefHeight="30.0" prefWidth="160.0" text="Output">
+            <Label alignment="CENTER" layoutX="77.0" layoutY="184.0" prefHeight="30.0" prefWidth="160.0" text="Output">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <ComboBox fx:id="combo" layoutX="72.0" layoutY="346.0" onAction="#onChange" prefWidth="150.0" />
-            <Label layoutX="81.0" layoutY="320.0" text="Choose A Camera Object" />
+            <ComboBox fx:id="combo" layoutX="81.0" layoutY="558.0" onAction="#onChange" prefWidth="150.0" />
+            <Label layoutX="90.0" layoutY="530.0" text="Choose A Camera Object" />
+            <ImageView fx:id="rightPhoto" fitHeight="150.0" fitWidth="200.0" layoutX="72.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/default.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnEdit" layoutX="64.0" layoutY="468.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" styleClass=".modify_buttons" text="Button" />
+            <Button fx:id="btnDelete" layoutX="197.0" layoutY="468.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" styleClass=".modify_buttons" text="Button" />
          </children></AnchorPane>
   </items>
 </SplitPane>
