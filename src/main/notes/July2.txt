@@ -1,0 +1,49 @@
+			8
+		6		10
+
+	4	    7
+
+
+
+
+
+___________________________________________
+	|		|           |           |
+	|		|           |           |
+	|		|           |           |
+___________________________________________
+	|		|           |           |
+	|		|           |           |
+	|		|           |           |
+	|		|           |           |
+___________________________________________
+
+
+
+
+Store your height over the past 20 years
+	TreeSet
+	Queue
+	List
+
+
+10cm
+40cm
+100cm
+120cm
+150cm
+160cm
+
+Store your favourite movies
+	Set: HashSet
+
+I want to answer student emails
+	Queue
+
+Display the highest grades that I recieved
+this semester
+	TreeSet
+
+Store all of the course codes of school
+	HashSet => best b/c distinct
+	PriorityQueue
