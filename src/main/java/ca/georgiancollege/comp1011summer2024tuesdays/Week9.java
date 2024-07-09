@@ -1,9 +1,7 @@
 package ca.georgiancollege.comp1011summer2024tuesdays;
 
 import java.security.SecureRandom;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -108,9 +106,61 @@ public class Week9 {
         names.stream().filter(s->s.toLowerCase().contains("d")).forEach(System.out::println);
 
     }
+    static void funtask1(){
+
+        LinkedList<Student> students = new LinkedList<>();
+        int numberOfValuesToGenerate = 1000;
+        SecureRandom srand = new SecureRandom();
+        ArrayList<String> firstNames = new ArrayList<>();
+        ArrayList<String> lastNames = new ArrayList<>();
+
+        firstNames.add("John");
+        firstNames.add("Mary");
+        firstNames.add("Paul");
+        firstNames.add("Jennifer");
+        firstNames.add("Sue");
+        firstNames.add("Larry");
+
+        lastNames.add("Smith");
+        lastNames.add("Johnson");
+        lastNames.add("Edwards");
+        lastNames.add("James");
+        lastNames.add("Ronaldo");
+        lastNames.add("Hamilton");
+
+       int[] ageValues =  srand.ints(numberOfValuesToGenerate, 18, 66).toArray();
+        int[] gradeValues =  srand.ints(numberOfValuesToGenerate, 40,101).toArray();
+
+        for(int i = 0; i < numberOfValuesToGenerate; i++){
+            students.add(new Student(
+                    srand.nextInt(1000,100000),
+                    firstNames.get(srand.nextInt(firstNames.size())),
+                    lastNames.get(srand.nextInt(lastNames.size())),
+                    ageValues[i],
+                    gradeValues[i]
+            ));
+        }
+
+        System.out.println("Failing Students");
+        students.stream().filter(s-> s.getGrade() < 50).forEach(s-> System.out.printf("Name = %s, Grade=%.1f\n",
+                s.getFirstName() +" " + s.getLastName(), s.getGrade()));
+
+        System.out.println("*".repeat(20));
+
+        System.out.println("Mature Students");
+        students.stream().filter(s-> s.getAge() >= 30).forEach(s-> System.out.printf("Name = %s, Age=%d\n",
+                s.getFirstName() +" " + s.getLastName(), s.getAge()));
+
+        System.out.println("*".repeat(20));
+        System.out.println("Young(18-25) Honor Roll Students");
+        students.stream().filter(s-> s.getAge() < 26 && s.getGrade() >= 80 ).forEach(s-> System.out.printf("Name = %s, Age=%d, Grade=%.1f\n",
+                s.getFirstName() +" " + s.getLastName(), s.getAge(), s.getGrade()));
+
+    }
 
     public static void main(String[] args) {
-        example5();
+        //example5();
+        funtask1();
     }
 
 }
