@@ -1,0 +1,19 @@
+Streams
+    Data that is generated on the spot
+        Manually create stream
+        Tranform any collection data type (except Maps) to a stream
+        Streams temp data => executed/actions ONCE
+
+
+    Categories of Stream
+        Primitive Streams
+            IntStream
+            LongStream
+            DoubleStream
+
+        Reference Streams
+            Any reference data type
+
+Lambda
+    Functions NOT attached to a class
+    Attached to data source? Stream or event listening thread
