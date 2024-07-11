@@ -17,3 +17,14 @@ Streams
 Lambda
     Functions NOT attached to a class
     Attached to data source? Stream or event listening thread
+
+
+Threads
+    Multi-processing
+    Thread states
+        born
+        run
+        blocked: user-input
+        wait
+        timed-wait
+        dead

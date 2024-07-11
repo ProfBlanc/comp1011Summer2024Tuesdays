@@ -158,9 +158,39 @@ public class Week9 {
 
     }
 
+    static void example8(){
+
+        Thread t1 = new Thread();//Thread-N, N starts at 0
+        t1.start();
+        Thread t2 = new Thread("My Thread");
+        t2.start();
+
+        Scanner scanner = new Scanner(System.in);
+
+        Runnable task = ()->{
+            System.out.println("Hello from thread " + Thread.currentThread().getName());
+            System.out.println(Thread.currentThread().getState());
+            //Integer.parseInt("abc");
+            System.out.println("Thanks for coming by! " + Thread.currentThread().getName());
+        };
+
+        Thread t3 = new Thread(task);
+        t3.start();
+
+        //scanner.nextLine();
+
+        System.out.println(Thread.currentThread().getName());
+        System.out.println(Thread.currentThread().getState());
+        System.out.println("End of example8");
+
+        System.out.println("*".repeat(10));
+        task.run();
+
+    }
+
     public static void main(String[] args) {
-        //example5();
-        funtask1();
+        example8();
+        //funtask1();
     }
 
 }
