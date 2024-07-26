@@ -10,10 +10,10 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("sb1-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dog-view.fxml"));
 
-        SB1Controller controller = new SB1Controller();
-        controller.setValue("Howdy!");
+        DogController controller = new DogController();
+//        controller.setValue("Howdy!");
         fxmlLoader.setController(controller);
 
 
