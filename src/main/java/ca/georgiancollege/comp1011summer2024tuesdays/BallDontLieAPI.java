@@ -8,6 +8,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 
 public class BallDontLieAPI {
 
@@ -54,5 +55,31 @@ public class BallDontLieAPI {
         return gson.fromJson(sendRequest(uri), BallDontLieAllPlayers.class);
 
     }
+
+    public ListOfBallTeams getAllTeams() throws Exception{
+
+        String uri = "https://api.balldontlie.io/v1/teams";
+
+        Path path = Path.of("src/main/resources/ca/georgiancollege/comp1011summer2024tuesdays/data/teams_data.json");
+
+        ListOfBallTeams teams;
+        if(!Files.exists(path)){
+            String json = sendRequest(uri);
+            teams = gson.fromJson(json, ListOfBallTeams.class);
+            Files.writeString(path, json);
+
+            System.out.println("Sent API CAll");
+
+        }
+        else{
+            teams = gson.fromJson(Files.readString(path), ListOfBallTeams.class);
+            System.out.println("Read from file");
+
+        }
+
+
+        return teams;
+    }
+
 
 }

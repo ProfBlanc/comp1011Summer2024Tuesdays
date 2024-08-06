@@ -10,16 +10,16 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dog-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ball-view.fxml"));
 
-        DogController controller = new DogController();
+        BallController controller = new BallController();
 //        controller.setValue("Howdy!");
         fxmlLoader.setController(controller);
 
 
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
-        stage.setTitle("Go Time");
+        stage.setTitle("Ball Time");
         stage.setResizable(false);
         stage.show();
     }
