@@ -35,6 +35,7 @@ public class DogController {
     @FXML
     void updateDog(){
         Dog dog = request.getData(uri);
+
         Platform.runLater(()->
         status.setText(dog.getStatus())
 );
@@ -54,13 +55,16 @@ public class DogController {
         value++;
         String updatedValue = value + "";
         Platform.runLater(()-> lblCounter.setText(updatedValue));
-
+       // lblCounter.setText(updatedValue);
     }
 
     @FXML
     public void initialize() throws Exception{
+
         updateDog();
+
         ScheduledExecutorService service = Executors.newScheduledThreadPool(3);
+
         btnStart.setOnAction(
                 event -> {
                     service.scheduleAtFixedRate(this::updateDog, 0, 2500, TimeUnit.MILLISECONDS);

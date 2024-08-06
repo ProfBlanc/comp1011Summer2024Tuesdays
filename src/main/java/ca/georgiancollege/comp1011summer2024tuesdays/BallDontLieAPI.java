@@ -11,7 +11,7 @@ import java.nio.file.Path;
 
 public class BallDontLieAPI {
 
-    private String key = "";
+    private String key = "vacvzvvadvad-fhdghdhd";
     private Gson gson = new Gson();
     public BallDontLieAPI(){
         try{
@@ -50,7 +50,7 @@ public class BallDontLieAPI {
 
     public BallDontLieAllPlayers example1(){
 
-        String uri = "https://api.balldontlie.io/v1/players?search=john";
+        String uri = "https://api.balldontlie.io/v1/players?search=john&team_ids[]=20";
         return gson.fromJson(sendRequest(uri), BallDontLieAllPlayers.class);
 
     }
