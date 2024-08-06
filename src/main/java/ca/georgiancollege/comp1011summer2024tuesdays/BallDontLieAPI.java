@@ -55,6 +55,12 @@ public class BallDontLieAPI {
         return gson.fromJson(sendRequest(uri), BallDontLieAllPlayers.class);
 
     }
+    public BallDontLieAllPlayers getAllPlayers(String term){
+
+        String uri = "https://api.balldontlie.io/v1/players?search=" + term;
+        return gson.fromJson(sendRequest(uri), BallDontLieAllPlayers.class);
+
+    }
 
     public ListOfBallTeams getAllTeams() throws Exception{
 
